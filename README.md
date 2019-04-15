@@ -14,7 +14,8 @@ max：最大长度，默认Integer.MAX_VALUE。String、Number、Collection、Ma
 scale：小数精度。数据类型为Float、Double时进行校验；<br>
 pattern：正则表达式；<br>
 patternMsg：正则表达式校验失败时的提示消息，支持变量name替换（#{name}）；<br>
-custom：自定义校验规则Class。<br><br>
+custom：自定义校验规则Class。<br>
+<hr>
 <b>调用方式：</b><br>
 1. ValidManager.valid(Object object)；
 2. ValidManager.valid(Object object, String id)；
