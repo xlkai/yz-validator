@@ -78,5 +78,5 @@ public @interface Valid {
      *
      * @return
      */
-    Class<? extends Validator> custom() default Validator.class;
+    Class<? extends Validator>[] custom() default Validator.class;
 }

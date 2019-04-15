@@ -40,10 +40,12 @@ public class ValidManager {
                 }
 
                 //自定义校验规则
-                if (!valid.getValidClass().isInterface()
-                        && !Modifier.isAbstract(valid.getValidClass().getModifiers())) {
-                    Validator validator = valid.getValidClass().newInstance();
-                    validator.valid(object, value, valid);
+                for (Class<? extends Validator> cls : valid.getValidClass()) {
+                    if (!cls.isInterface()
+                            && !Modifier.isAbstract(cls.getModifiers())) {
+                        Validator validator = cls.newInstance();
+                        validator.valid(object, value, valid);
+                    }
                 }
             }
         } catch (IllegalAccessException | NoSuchFieldException | InstantiationException e) {

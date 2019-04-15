@@ -12,6 +12,32 @@ import java.util.*;
 public class ValidUtils {
 
     /**
+     * 判断是否为小数
+     *
+     * @param value
+     * @return
+     */
+    public static boolean isDecimal(Object value) {
+        return value.getClass() == float.class
+                || Float.class.isAssignableFrom(value.getClass())
+                || value.getClass() == double.class
+                || Double.class.isAssignableFrom(value.getClass());
+    }
+
+    /**
+     * 判断是否为整数
+     *
+     * @param value
+     * @return
+     */
+    public static boolean isInteger(Object value) {
+        return value.getClass() == int.class
+                || Integer.class.isAssignableFrom(value.getClass())
+                || value.getClass() == long.class
+                || Long.class.isAssignableFrom(value.getClass());
+    }
+
+    /**
      * 判断字符串是否为空
      *
      * @param str

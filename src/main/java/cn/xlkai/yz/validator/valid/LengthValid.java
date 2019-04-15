@@ -3,6 +3,9 @@ package cn.xlkai.yz.validator.valid;
 import cn.xlkai.yz.validator.ValidModel;
 import cn.xlkai.yz.validator.ValidUtils;
 
+import java.util.Collection;
+import java.util.Map;
+
 /**
  * @author Kail
  * @version 1.0
@@ -20,8 +23,25 @@ public class LengthValid implements IValid {
             System.err.println("min[" + valid.getMin() + "]不能大于max[" + valid.getMax() + "]");
             return true;
         }
-        String str = value.toString();
-        return str.length() >= valid.getMin() && str.length() <= valid.getMax();
+
+        //集合
+        if (Collection.class.isAssignableFrom(value.getClass())) {
+            Collection collection = (Collection) value;
+            return collection.size() >= valid.getMin() && collection.size() <= valid.getMax();
+        } else if (Map.class.isAssignableFrom(valid.getClass())) {
+            // map
+            Map map = (Map) value;
+            return map.size() >= valid.getMin() && map.size() <= valid.getMax();
+        } else if (ValidUtils.isInteger(value) || String.class.isAssignableFrom(value.getClass())) {
+            // 整数、字符串
+            String str = value.toString();
+            return str.length() >= valid.getMin() && str.length() <= valid.getMax();
+        } else if (ValidUtils.isDecimal(value)) {
+            //小数：验证整数位
+            String str = value.toString().split("\\.")[0];
+            return str.length() >= valid.getMin() && str.length() <= valid.getMax();
+        }
+        return true;
     }
 
     @Override

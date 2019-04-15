@@ -1,6 +1,7 @@
 package cn.xlkai.yz.test.validator;
 
 import cn.xlkai.yz.validator.Valid;
+import cn.xlkai.yz.validator.ValidManager;
 import lombok.Data;
 
 import java.util.List;
@@ -15,15 +16,19 @@ import java.util.Map;
 @Data
 public class TestModel {
 
-    private String id;
-    @Valid(min = 5, max = 8)
-    private String name;
-    private Integer sex;
-    @Valid(scale = 2)
-    private Float price;
-    @Valid(scale = 3)
-    private Double sale;
-    private List<String> list;
-    private Map<String, Object> map;
+    @Valid(name = "String", id = {"testId", ValidManager.DEFAULT_NAME}, max = 4, min = 4)
+    private String stringVal;
+    @Valid(name = "Float", scale = 1)
+    private Float floatVal;
+    @Valid(name = "Double")
+    private Double doubleVal;
+    @Valid(name = "Int")
+    private Integer intVal;
+    @Valid(name = "Long")
+    private Long longVal;
+    @Valid(name = "List")
+    private List<String> listVal;
+    @Valid(name = "Map")
+    private Map<String, String> mapVal;
 
 }

@@ -22,5 +22,5 @@ public class ValidModel {
     private int scale;
     private String pattern;
     private String patternMsg;
-    private Class<? extends Validator> validClass;
+    private Class<? extends Validator>[] validClass;
 }
