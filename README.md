@@ -17,6 +17,6 @@ patternMsg：正则表达式校验失败时的提示消息，支持变量name替
 custom：自定义校验规则Class。<br>
 <hr>
 <b>调用方式：</b><br>
-1. ValidManager.valid(Object object)；
-2. ValidManager.valid(Object object, String id)；
+1. ValidManager.valid(Object object)；<br>
+2. ValidManager.valid(Object object, String id)；<br>
 3. ValidManager.valid(ValidProvider provider, Object object, String id)；
