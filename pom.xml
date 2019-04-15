@@ -8,6 +8,21 @@
     <artifactId>yz-validator</artifactId>
     <version>1.0</version>
 
+    <developers>
+        <developer>
+            <name>Kail</name>
+            <email>xlkai.yz@gmail.com</email>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>github</name>
+            <url>https://github.com/xlkai/yz-validator</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
